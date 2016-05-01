@@ -98,7 +98,10 @@ define([
 
     $watchers.on(scrollEvent, function (ev) {
       var position = $(this).data('select2-scroll-position');
-      $(this).scrollTop(position.y);
+      if($(this).find('.select2-container--open').size()>0)
+      {
+          $(this).scrollTop(position.y);
+      }
     });
 
     $(window).on(scrollEvent + ' ' + resizeEvent + ' ' + orientationEvent,
